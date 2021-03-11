@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>漫谈编程语言 | Hexo</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Hexo">
+    <meta name="author" content="John Doe">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Hexo</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2021-01-11T08:03:40.000Z" itemprop="datePublished">
+          2021-01-11
+      </time>
+    
+</span>
+                <h1>漫谈编程语言</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p> 阅读本文可能花费您 17 分钟</p>
+<p>编程语言，一种特殊的语言。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文来自于 我在公司内部的一次分享。</p>
+<p>主要简述了编程语言的阵营，语义的表达形式，不同的思维范式，以及常见规范和执行机制。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="编程语言三种阵营"><a href="#编程语言三种阵营" class="headerlink" title="编程语言三种阵营"></a>编程语言三种阵营</h3><h4 id="学术派"><a href="#学术派" class="headerlink" title="学术派"></a>学术派</h4><blockquote>
+<p>You are a poet and a mathematician. Programming is your poetry</p>
+</blockquote>
+<p>语言代表：Haskell Lisp Scala Closure</p>
+<p>学术阵营认为编程语言是一种思想的表达。</p>
+<p>这些语言往往是从上向下去设计，从一个纯粹的理想角度对语言建模，它们充斥着各种概念: 函数式，类型系统，模式匹配…</p>
+<p>它们痛斥操作系统，编译器带来的各种缺陷，所以在设计时 很少去考虑，甚至有的学术派语言 完全找不到相应概念的映射(Lisp)。</p>
+<p>虽然它们的结构精妙 概念完美，但从实用角度上 完全不占优势。</p>
+<p>主要原因有二：</p>
+<ol>
+<li><p>如果想熟悉学术派编程语言，就必须要先掌握它们背后的设计思想。</p>
+<p>就比如想掌握 Haskell，范畴论那套东西你绕不开，因为 Haskell 的基本组成单位就是 Functor。</p>
+</li>
+<li><p>大部分学术派语言都认为编程的世界应该是“纯”的，它们反感副作用的出现，它们会为副作用的数据提供各种建模，让它们符合“纯”的定义。</p>
+</li>
+</ol>
+<p>有一个典型的例子，使用 Maybe 处理异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYdivBy :: Integral a &#x3D;&gt; a -&gt; [a] -&gt; Maybe [a]</span><br><span class="line">divBy _ [] &#x3D; Just []</span><br><span class="line">divBy _ (0:_) &#x3D; Nothing</span><br><span class="line">divBy numerator (denom:xs) &#x3D;</span><br><span class="line">    case divBy numerator xs of</span><br><span class="line">      Nothing -&gt; Nothing</span><br><span class="line">      Just results -&gt; Just ((numerator &#96;div&#96; denom) : results)</span><br></pre></td></tr></table></figure>
+
+<p>但是操作系统就是一个副作用的产物。</p>
+<p>用<a target="_blank" rel="noopener" href="http://www.yinwang.org/blog-cn/2015/04/03/paradigms">垠神的话</a>来说：没有副作用的语言，就像一个没有无线电，没有光的世界，所有的数据都必须通过实在的导线传递，这许多纷繁的电缆，必须被正确的连接和组织，才能达到需要的效果。</p>
+<p>不过 它们对现代编程语言的发展做出了很大贡献，现代编程语言中的大多数特性都是来自这个阵营。</p>
+<p>就比如 React 提倡的 State 数据不可变模型，reducer 的纯函数特性。</p>
+<p>Rust 中的错误处理特性，Kotlin 中的高阶类型等等。</p>
+<h4 id="低层派"><a href="#低层派" class="headerlink" title="低层派"></a>低层派</h4><blockquote>
+<p>You are a hacker. You make hardware dance to your tune</p>
+</blockquote>
+<p>语言代表: C C++ Rust Assembly</p>
+<p>计算机科学的先驱 Alan Perlis 给低层语言（low-level languages）下的定义是：</p>
+<blockquote>
+<p>“A programming language is low level when its programs require attention to the irrelevant.”</p>
+</blockquote>
+<p>如果用一门语言编写的程序<strong>需要处理不相关的东西</strong>，那这就是一门低层语言。</p>
+<p>低层阵营认为编程语言是运行在冯诺依曼机器上的机器码。</p>
+<p>这些语言没有学术派语言”那些华丽的外衣”，它们是命令式语言与一点 操作系统/编译器抽象的结合。</p>
+<p>虽然从编程角度来说很原始，但它们有最贴近魔法的能力，它们可直接操控内存，手动回收垃圾，从语法角度去进行编译优化，将操作系统/编译器的概念映射得淋漓尽致。</p>
+<p>并且它们也是高级语言以及各种基础设施的缔造者。</p>
+<p>不过为了有效地编程，必须时刻记住硬件和软件的概念，在往往会让开发者痛苦不堪。</p>
+<p>最典型的 烫烫烫错误：</p>
+<h4 id="应用派"><a href="#应用派" class="headerlink" title="应用派"></a>应用派</h4><blockquote>
+<p>You are a maker. You build things for people to use</p>
+</blockquote>
+<p>语言代表: JavaScript Python C# Swift Kotlin PHP</p>
+<p>应用阵营认为编程语言是构建应用的一种工具。</p>
+<p>这些语言往往是最贴近应用业务的，它们倾向于在特定环境下组合各种功能 模块，而不必太关心底层。</p>
+<p>甚至有的应用级开发者，不需要懂操作系统，算法就可以设计出一款精美的应用。</p>
+<p>因为在互联网的红利推动下，有很多基础设施已经被实现，所以应用级的开发者 很少在乎底层，这是件可怕的事。</p>
+<p>就比如: Java 里的 Int 是 4 个 byte；但是 Go 里的 Int 却和机器的 32bit 还是 64bit 有关；到了 JS 里，压根就没有“整数”的概念，都是“number”。</p>
+<p>现代的大部分应用都离不开这些语言，有趣的是，有些语言的最初设计很不规范，幸好它们的社区是最开发繁荣的。</p>
+<h3 id="编程语言与语义学"><a href="#编程语言与语义学" class="headerlink" title="编程语言与语义学"></a>编程语言与语义学</h3><p>编程语言与语言密不可分，都是表达思想的一种工具。</p>
+<p>谈起语言 就离不开语义，在编程语言中 语义最明显的表现就是 命名 以及 编程范式(下一章节)了。</p>
+<h4 id="正反例子"><a href="#正反例子" class="headerlink" title="正反例子"></a>正反例子</h4><p>举一些的例子:</p>
+<p>JavaScript - 命名错误问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY&#x2F;&#x2F; 返回两数之和</span><br><span class="line">function sub(a，b) &#123; return a + b &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Python - API 设计问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">COPY# 返回 列表中 出现次数最多的数字</span><br><span class="line"># 短短两行代码，做的事情全都隐藏起来了 为了简约 反而给开发者增加了心智负担</span><br><span class="line">def most_frequent(lst):</span><br><span class="line">  return max(set(lst)，key &#x3D; lst.count)</span><br><span class="line"></span><br><span class="line">most_frequent([1,2,1,2,3,2,1,4,2]) # 2</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin - 正面例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">COPY&#x2F;&#x2F; 根据条件 划分数组</span><br><span class="line">data class Person(val name: String，val age: Int)</span><br><span class="line"></span><br><span class="line">fun main() &#123;</span><br><span class="line">  val members &#x3D; listOf(</span><br><span class="line">    Person(&quot;Ben&quot;，85),</span><br><span class="line">    Person(&quot;Mel&quot;，7),</span><br><span class="line">    Person(&quot;Lou&quot;，15),</span><br><span class="line">    Person(&quot;Sam&quot;，22),</span><br><span class="line">    Person(&quot;Ash&quot;，10),</span><br><span class="line">  )</span><br><span class="line">  </span><br><span class="line">  val (kids，adults) &#x3D; members.partition &#123; it.age &lt; 18 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="语义设计"><a href="#语义设计" class="headerlink" title="语义设计"></a>语义设计</h4><p>可以看出，一个优秀的名称设计是有多么的重要，这里可以细谈一下，名称设计一般分为：</p>
+<ol>
+<li>内部变量命名<ul>
+<li>表示数据</li>
+<li>表示状态</li>
+</ul>
+</li>
+<li>函数命名</li>
+<li>特定领域命名(不涉及，因为一般都有规范，就比如 React 组件必须大写-骆驼峰)</li>
+</ol>
+<p>命名内部数据变量的时候，用名词堆叠 再符合个命名规范就可以了。</p>
+<p>比如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst page_count &#x3D; 5</span><br><span class="line">const should_update &#x3D; true</span><br><span class="line">const firstName &#x3D; &#39;Gustavo&#39;</span><br><span class="line">const friends &#x3D; [&#39;Kate&#39;，&#39;John&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>命名状态变量的时候，一般都是特定动词(has/should/can/is/…)+名词。</p>
+<p>比如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPYconst hasPagination &#x3D; postCount &gt; 10</span><br><span class="line">const shouldDisplayPagination &#x3D; postCount &gt; 10</span><br></pre></td></tr></table></figure>
+
+<p>函数命名时，也是有一定规律的。</p>
+<p>函数: 动词+名词堆叠+[副词]</p>
+<p>而动词 完全可以把它枚举出来，这样大部分场景下，都可以拿来就用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COPYaddBalance getAccount filterActivityList patchEmails deleteUserById</span><br><span class="line">removeItem [generate&#x2F;gen]TagList fillTableHeader createFolder forEachFileList parseNodeTree updateUserInfo</span><br><span class="line">extractUserInfo showTable hideIframe useDebounce toBase64 isSuccess canWrite requestModule loadScript fetchGalleryData setLanguage sendMessage querySelector findElement combineList importResource searchService renderComponent readFile onChange handleInput verifyFormData changeSettings cloneJSON appendSlice insertColumn saveConfig execCommand unloadPage destoryConnection openProgram</span><br></pre></td></tr></table></figure>
+
+<p>单个动词，一般都是 名词.动词，就比如 <code>AST.parse()</code>。</p>
+<h4 id="中文编程"><a href="#中文编程" class="headerlink" title="中文编程"></a>中文编程</h4><ol>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wenyan-lang/wenyan">文言文编程语言</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPY吾有一數。曰三。名之曰「甲」。</span><br><span class="line">為是「甲」遍。</span><br><span class="line">  吾有一言。曰「「問天地好在。」」。書之。</span><br><span class="line">云云。</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/zhanyong-wan/dongbei/blob/master/doc/dongbei-ref.md">东北编程语言</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/itorr/e/blob/master/index.html">易网页</a></p>
+</li>
+</ol>
+<h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p>不同的编程范式 代表了 coding 时 不同的思考维度，下面将简述目前最流行的三种范式。</p>
+<h4 id="结构式"><a href="#结构式" class="headerlink" title="结构式"></a>结构式</h4><blockquote>
+<p>everything is command.</p>
+</blockquote>
+<p>结构式编程是最符合冯诺依曼体系的范式，它告诉计算机如何去做事情。</p>
+<p>它将逻辑划分成一个个语句，使用最淳朴的方式(循环，分支,顺序)排列起来，然后顺序执行。</p>
+<p><a target="_blank" rel="noopener" href="https://www.hackerrank.com/challenges/fizzbuzz/problem">FizzBuzz</a>程序的结构式实现：</p>
+<blockquote>
+<p>Write a short program that prints each number from 1 to 100 on a new line.</p>
+<p>For each multiple of 3，print “Fizz” instead of the number.</p>
+<p>For each multiple of 5，print “Buzz” instead of the number.</p>
+<p>For numbers which are multiples of both 3 and 5，print “FizzBuzz” instead of the number.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">COPYpackage main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    for i :&#x3D; 1; i &lt;&#x3D; 100; i++ &#123;</span><br><span class="line">        divBy3 :&#x3D; i%3 &#x3D;&#x3D; 0</span><br><span class="line">        divBy5 :&#x3D; i%5 &#x3D;&#x3D; 0</span><br><span class="line">        if divBy3 &amp;&amp; divBy5 &#123;</span><br><span class="line">            fmt.Println(&quot;FizzBuzz&quot;)</span><br><span class="line">        &#125; else if divBy3 &#123;</span><br><span class="line">            fmt.Println(&quot;Fizz&quot;)</span><br><span class="line">        &#125; else if divBy5 &#123;</span><br><span class="line">            fmt.Println(&quot;Buzz&quot;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            fmt.Println(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很淳朴不是嘛。</p>
+<h4 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h4><blockquote>
+<p>everything is object.</p>
+</blockquote>
+<p>相信很多同学都学过有关面向对象的语言，在我们上课的时候，老师就常提起 面向对象的三大概念: 封装 继承 多态。</p>
+<p>其实这个概念一直是错误的。</p>
+<p>封装是一个很笼统的概念，函数就是一种封装；并且多态可以理解为向上转型，Python TypeScript 中的 ducking typing 就可以多态；目前看来只有继承是 OOP 的特性。</p>
+<p>但 OOP 的主要概念真的是如此吗? 显然不是的。</p>
+<p>OOP 主要是提供了一种模块化思想，面向对象范式只是语法层面的思想体现。</p>
+<p>它在面向结构式上抽象，根据功能业务 对编程世界进行建模，把代码变成一个个以类为主的组成单元。</p>
+<p>有趣的是 大行其道微服务，这两年兴起的微前端，以及底层的微内核 都是这种模块化思想。</p>
+<p>在语法上 OOP 由于不支持 函数第一成员的特性，所有的逻辑都只能封装到类的方法中，调用逻辑时只能名词.动词()，这也是面向对象语言 给人造成繁琐的原因。</p>
+<p>(其实我还想说，这也是为什么设计模式 这种常见概念能大行其道的原因)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">COPYclass Point&#123;</span><br><span class="line">    var x:Int &#x3D; 0</span><br><span class="line">    var y:Int &#x3D; 0</span><br><span class="line">    operator fun plus(p: Point) &#123;</span><br><span class="line">        x +&#x3D; p.x</span><br><span class="line">        y +&#x3D; p.y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    val p &#x3D; Point()</span><br><span class="line">    p.x &#x3D; 8</span><br><span class="line">    p.y &#x3D; 10</span><br><span class="line">    val p1 &#x3D; Point()</span><br><span class="line">    p1.x &#x3D; 2</span><br><span class="line">    p1.y &#x3D; 3</span><br><span class="line"></span><br><span class="line">    val p2 &#x3D; p + p1</span><br><span class="line">    println(&quot;Point(x &#x3D; $&#123;p.x&#125;，y &#x3D; $&#123;p.y&#125;)&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="函数式"><a href="#函数式" class="headerlink" title="函数式"></a>函数式</h4><blockquote>
+<p>everything is lambda.</p>
+</blockquote>
+<p>函数式编程是最符合人思维的范式，它告诉计算机 我们想要什么(声明式编程)。</p>
+<p>一提到函数式，纯函数，无状态，数据不可变，副作用，惰性执行等等相关概念都不可避免。</p>
+<p>我简述下：</p>
+<ol>
+<li>无状态: 不管何时运行，运行多少次，只要给定相同的输入，那输出结果一定是一致的，完全不依赖外部数据。</li>
+<li>数据不可变: 顾名思义，数据不可变化，如果想修改数据，那就创建一个新的数据。</li>
+<li>副作用: 指的是 函数修改了外部的状态，可以看出 如果保存了数据不可变型，那么函数自然而然就没有副作用了。</li>
+<li>纯函数: 如果一个函数保障了 无状态 数据不可变特性，那这个函数就是一个纯函数。</li>
+</ol>
+<p>不依赖外部数据，不修改内部数据。</p>
+<p>举例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst person &#x3D; &#123; name: &#39;SimonAKing&#39; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 修改了内部数据</span><br><span class="line">const changeName &#x3D; (person，newName) &#x3D;&gt; person.name &#x3D; NewName</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 依赖了外部数据</span><br><span class="line">const joinName &#x3D; (text) &#x3D;&gt; person.name + text</span><br></pre></td></tr></table></figure>
+
+<p>可以看出 函数式本身具备了一种防御性编程的规范。</p>
+<p>而函数式编程的主要提供了什么？</p>
+<p>答: 逻辑的组合映射 以及 行为上的分治思想(MapReduce)。</p>
+<p>逻辑的组合映射，函数式编程语言提供了很多有关组合映射的工具函数：map、flatMap、foldl、foldr、reduce、filter、compose、partial、curring ..</p>
+<p>当然在熟悉它们之前，你需要了解下 各种 Functor: 基本的 Mappable 函子、Pointed 函子、Maybe 函子、Monad 函子等 以及 一些范畴论的知识。</p>
+<p>一个简朴的函子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">COPYclass Box &#123;</span><br><span class="line">  constructor(value) &#123; </span><br><span class="line">    this.value &#x3D; value</span><br><span class="line">  &#125;</span><br><span class="line">  map (fn) &#123;</span><br><span class="line">    return new Box(fn(this.value))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const value &#x3D; new Box(1).map(v &#x3D;&gt; v + 1).map(v &#x3D;&gt; v * 2)</span><br></pre></td></tr></table></figure>
+
+<p>行为上的分治思想：</p>
+<p>给出快排的两种实现，大家可以体会下：</p>
+<ul>
+<li>结构式:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">COPYclass QuickSort &#123;   </span><br><span class="line">       private static void exch(int pos1,int pos2,List data)&#123;</span><br><span class="line">             int tmp&#x3D;data[pos1];</span><br><span class="line">             data[pos1]&#x3D;data[pos2];</span><br><span class="line">             data[pos2]&#x3D;tmp;</span><br><span class="line">       &#125;</span><br><span class="line">       private static void partition (int lo,int hi，List a)&#123;                   </span><br><span class="line">             if (lo&lt;0||hi&lt;0||lo&gt;&#x3D;hi-1)&#123;</span><br><span class="line">                    return;</span><br><span class="line">             &#125;</span><br><span class="line">             int midValue&#x3D;a[lo];</span><br><span class="line">             int i&#x3D;lo+1;int j&#x3D;hi;</span><br><span class="line">             while (true)&#123;</span><br><span class="line">                    while(i&lt;hi&amp;&amp;a[i]&lt;midValue)&#123;</span><br><span class="line">                           i++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    while(j&gt;lo&amp;&amp;a[j]&gt;midValue)&#123;</span><br><span class="line">                           j--;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if (i&gt;&#x3D;j) break;</span><br><span class="line">                    exch(i,j,a);        </span><br><span class="line">             &#125;</span><br><span class="line">             exch(i,lo,a);       </span><br><span class="line">             partition(lo,i-1,a);             </span><br><span class="line">             partition(i+1,hi,a);</span><br><span class="line">             </span><br><span class="line">       &#125;</span><br><span class="line">       public static List sort(List a)&#123;</span><br><span class="line">             int low&#x3D;0; int hight&#x3D;a.size()-1;</span><br><span class="line">             partition(low，hight，a);      </span><br><span class="line">             return a;    </span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数化:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">COPYconst quickSort &#x3D; a &#x3D;&gt; &#123;</span><br><span class="line">  if (!a.length) &#123; return [] &#125;</span><br><span class="line"></span><br><span class="line">  return [</span><br><span class="line">    ...quickSort(a.filter(e &#x3D;&gt; e &lt; a[0])),</span><br><span class="line">    ...a.filter(e &#x3D;&gt; e &#x3D;&#x3D;&#x3D; a[0]),</span><br><span class="line">    ...quickSort(a.filter(e &#x3D;&gt; e &gt; a[0]))]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就像章节开始所说的那样：结构式编程是最符合冯诺依曼体系的范式，它告诉计算机如何去做事情；函数式编程是最符合人思维的范式，它告诉计算机 我们想要什么。</p>
+<p>具体选哪种范式，还是要根据场景来结合。</p>
+<p>如果你的场景适合业务领域建模，很容易找到不同的模型以及模型间关系的话，那么 OOP 显然是最优的。</p>
+<p>如果你的场景 主要是对数据的加工，就比如对一数组先排序再筛选 然后映射得到结果的话，FP 就很自然。</p>
+<h3 id="编程规范"><a href="#编程规范" class="headerlink" title="编程规范"></a>编程规范</h3><h4 id="SOLID-原则"><a href="#SOLID-原则" class="headerlink" title="SOLID 原则"></a>SOLID 原则</h4><ol>
+<li><p>S：单一职责原则</p>
+<p>一个模块只能做一件事。</p>
+</li>
+<li><p>O：开闭原则</p>
+<p>增加新功能时，模块应该是支持扩展的，而不是提倡修改，多态的最佳实践。</p>
+</li>
+<li><p>L：里氏替换原则</p>
+<p>子类必须可以替换它的超类，向下转型的最佳实践。</p>
+</li>
+<li><p>I：接口隔离原则</p>
+<p>接口设计时应该衡量细粒化，而不是设计一个笼统的接口。</p>
+</li>
+<li><p>D：依赖反转原则</p>
+<p>高级模块不应该依赖于低级模块。两者都应该依赖于抽象。</p>
+<p>抽象不应该依赖于细节。细节应该依赖于抽象。</p>
+<p>注入实现了相同接口的逻辑。</p>
+</li>
+</ol>
+<h4 id="防御性编程"><a href="#防御性编程" class="headerlink" title="防御性编程"></a>防御性编程</h4><p>防御性编程往往是从编程角度去提升工程质量，减少 Bug。</p>
+<p>刚刚提到函数式语言的思想就很实用。</p>
+<ol>
+<li><p>拒绝写副作用代码</p>
+<p>不要与外部状态相互关联，尽量将所需数据全部输入。 比如典型的副作用 JS-API: sort，reverse，splice，最好能不用就不用。</p>
+</li>
+<li><p>不要共享引用</p>
+<p>如果说 null 的设计是一亿美金的失误，那么 堆上对象共享引用 的设计可以算上得百亿美金的失误。 如果遇到共享引用的变量情况，请不要碰它。</p>
+</li>
+<li><p>尽量写纯函数</p>
+</li>
+<li><p>尽量将数据流统一化</p>
+</li>
+<li><p>统一语言规范，使用相同的 lint 工具，相同的语法规范</p>
+</li>
+<li><p>容错处理，正视程序出现的每一个异常</p>
+</li>
+<li><p>API 接口设计时 对输入尽可能的保持严谨，对输出保持开发</p>
+</li>
+<li><p>不要相信网络请求，每一次网络请求都有可能失败</p>
+</li>
+</ol>
+<h4 id="抽象化原则"><a href="#抽象化原则" class="headerlink" title="抽象化原则"></a>抽象化原则</h4><ol>
+<li><p>DRY - Don’t Repeat Yourself</p>
+<p>尽量在项目中减少重复的代码。</p>
+</li>
+<li><p>KISS - Keep It Simple &amp; Stupid</p>
+<p>代码应该保持简单易懂。</p>
+</li>
+<li><p>YAGNI - You Ain’t Gonna Need It</p>
+<p>不要进行过度化设计，会延缓开发效率。</p>
+</li>
+</ol>
+<h3 id="编程语言如何执行"><a href="#编程语言如何执行" class="headerlink" title="编程语言如何执行"></a>编程语言如何执行</h3><h4 id="编译型语言"><a href="#编译型语言" class="headerlink" title="编译型语言"></a>编译型语言</h4><p>编译型语言是将源代码经过词法分析，语法分析，生成 AST，然后在转成中间代码的形式，经过优化器优化后 再生成目标机器的机器码。</p>
+<p>优化涉及到的一些点：</p>
+<ol>
+<li>去掉无意义的数据 (无法运行到的代码，没有利用的数据)</li>
+<li>内联函数，尾递归优化</li>
+<li>解语法糖</li>
+<li>…</li>
+</ol>
+<p>代表语言: C，C++，Go</p>
+<h4 id="解释型语言"><a href="#解释型语言" class="headerlink" title="解释型语言"></a>解释型语言</h4><p>解释型语言，不能直接生成机器码，而是先翻译成中间代码，再有解释器对中间代码进行解释运行。</p>
+<p>代表语言: Python，Lua</p>
+<h4 id="解释编译型语言"><a href="#解释编译型语言" class="headerlink" title="解释编译型语言"></a>解释编译型语言</h4><p>由于即时编译技术(JIT)的存在，可以将热点代码直接编译成字节码 来提高程序执行的效率，越来越多的语言开始使用，就比如最近推出的 <a target="_blank" rel="noopener" href="https://www.ruby-lang.org/en/news/2020/12/25/ruby-3-0-0-released/">Ruby3</a>。</p>
+<p>JavaScript 也是一个很好的例子。</p>
+<blockquote>
+<p>V8 运行 JS 的过程</p>
+</blockquote>
+<ol>
+<li>源代码(source code) 通过解析器(parser) 解析后 生成抽象语法树(AST)。</li>
+<li>抽象语法树 通过 解释器(interpreter-Ignition) 生成了字节码(bytecode)，此字节码作为基准执行模型，字节码等同于 25%-50% 机器码大小。 并且 此时抽象语法树被彻底清除掉了，释放其内存空间。</li>
+<li>生成后的字节码 直接被 解释器执行 (解释执行)。</li>
+<li>在代码不断的运行过程中，解释器收集到了很多可以优化代码的信息，比如变量的类型，哪些函数执行的频率较高。</li>
+<li>V8 引擎的编译器(compiler-TruboFan) 会根据这些信息和字节码 来编译出经过优化的机器代码。</li>
+</ol>
+<p>一些常见的优化规则：</p>
+<ul>
+<li>函数只是声明未被调用，那么该函数不会生成到 AST</li>
+<li>函数如果只被调用一次，字节码则直接被解释执行了</li>
+<li>如果函数被调用多次，可能会被标记为热点函数，会被编译成机器代码</li>
+</ul>
+<p>随着不断执行，会有越来越多的代码被标记为热点代码，然后被编译成机器码。</p>
+<p>所以 JS 运行的过程 正是一个从解释执行到编译执行的过程。</p>
+<p>注意在某些情况下，优化后的机器代码可能会被逆向还原成字节码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">COPYconst sum &#x3D; (a,b) &#x3D;&gt; a + b</span><br><span class="line"></span><br><span class="line">sum(1,2)</span><br><span class="line">&#x2F;&#x2F; 假设调用了多次 sum 函数</span><br><span class="line">&#x2F;&#x2F; sum 函数在编译器优化后的机器码 将是 int 类型的参数</span><br><span class="line"></span><br><span class="line">sum(&#39;1&#39;，&#39;2&#39;)</span><br><span class="line">&#x2F;&#x2F; 此时 参数的类型发生变化，V8 将会发生 deoptimization 的过程</span><br><span class="line">&#x2F;&#x2F; 机器码不知道如何处理 string 类型参数，也就是回退到字节码，由解释器解释执行</span><br><span class="line">&#x2F;&#x2F; 所以 coding 时，热点函数不要随便改变类型</span><br></pre></td></tr></table></figure>
+
+<h3 id="未来编程语言设想"><a href="#未来编程语言设想" class="headerlink" title="未来编程语言设想"></a>未来编程语言设想</h3><ol>
+<li>完全不涉及编译器的概念</li>
+<li>语义设计优秀，写代码就像写诗一样</li>
+<li>无 GC</li>
+<li>强类型系统，支持强大类型建模</li>
+<li>各领域都有对应的丰富生态</li>
+<li>优雅错误处理，强行让开发者正视逻辑错误，可是忽视潜在错误</li>
+<li>强大的工具链，具有比较统一的编程风格，lint 工具，包管理器</li>
+<li>可以完全利用多核的能力</li>
+<li>可以面向 GPU 编程</li>
+<li>支持多种编程范式</li>
+<li>跨平台，无需虚拟机，可编译成机器码</li>
+<li>在语法层面提供并发原语</li>
+</ol>
+<h3 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://josephg.com/blog/3-tribes/">3 tribes of programming</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.yinwang.org/blog-cn/2015/04/03/paradigms">编程的宗派</a></li>
+<li><a target="_blank" rel="noopener" href="https://thinking.tomotoes.com/tags/pl/index">思考的价值-PL</a></li>
+<li><a target="_blank" rel="noopener" href="https://thinking.tomotoes.com/tags/coding">思考的价值-Coding</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107947462">前端 DSL 实践指南（上）—— 内部 DSL</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab">Learn Advanced TypeScript Types</a></li>
+<li><a target="_blank" rel="noopener" href="https://tech.meituan.com/2020/10/22/java-jit-practice-in-meituan.html">Java 即时编译器原理解析及实践</a></li>
+<li><a target="_blank" rel="noopener" href="https://musicfe.dev/javascript-functional-programming-advance/">函数式编程进阶：杰克船长的黑珍珠号</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.yinwang.org/blog-cn/2015/11/21/programming-philosophy">编程的智慧</a></li>
+</ul>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2021/02/23/30S-%E6%BA%90%E7%A0%81%E5%88%A8%E6%9E%90%E7%B3%BB%E5%88%97%E4%B9%8B%E5%87%BD%E6%95%B0%E7%AF%87/" style="float: left;">
+        ← 30S 源码刨析系列之函数篇
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/12/08/React-%E7%9A%847%E4%B8%AD%E6%80%AA%E5%BC%82%E4%BB%A3%E7%A0%81/">
+        React 的7中怪异代码 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Doe. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

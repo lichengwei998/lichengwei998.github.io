@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>30S 源码刨析系列之函数篇 | Hexo</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Hexo">
+    <meta name="author" content="John Doe">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Hexo</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2021-02-23T04:05:35.000Z" itemprop="datePublished">
+          2021-02-23
+      </time>
+    
+</span>
+                <h1>30S 源码刨析系列之函数篇</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p> 阅读本文可能花费您 26 分钟</p>
+<p>由浅入深、逐个击破 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/t/function/p/1/">30SecondsOfCode</a> 中函数系列所有源码片段，带你领略源码之美。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列是对名库 <a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/">30SecondsOfCode</a> 的深入刨析。</p>
+<p>本篇是其中的函数篇，可以在极短的时间内培养你的函数式思维。</p>
+<p>内容根据源码的难易等级进行排版，目录如下：</p>
+<ol>
+<li>新手级</li>
+<li>普通级</li>
+<li>专家级</li>
+</ol>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="新手级"><a href="#新手级" class="headerlink" title="新手级"></a>新手级</h3><h4 id="checkProp"><a href="#checkProp" class="headerlink" title="checkProp"></a>checkProp</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">COPYconst checkProp &#x3D; (predicate, prop) &#x3D;&gt; obj &#x3D;&gt; !!predicate(obj[prop]);</span><br><span class="line"></span><br><span class="line">const lengthIs4 &#x3D; checkProp(l &#x3D;&gt; l &#x3D;&#x3D;&#x3D; 4, &#39;length&#39;);</span><br><span class="line">lengthIs4([]); &#x2F;&#x2F; false</span><br><span class="line">lengthIs4([1, 2, 3, 4]); &#x2F;&#x2F; true</span><br><span class="line">lengthIs4(new Set([1, 2, 3, 4])); &#x2F;&#x2F; false (Set uses Size, not length)</span><br><span class="line"></span><br><span class="line">const session &#x3D; &#123; user: &#123;&#125; &#125;;</span><br><span class="line">const validUserSession &#x3D; checkProp(u &#x3D;&gt; u.active &amp;&amp; !u.disabled, &#39;user&#39;);</span><br><span class="line"></span><br><span class="line">validUserSession(session); &#x2F;&#x2F; false</span><br><span class="line"></span><br><span class="line">session.user.active &#x3D; true;</span><br><span class="line">validUserSession(session); &#x2F;&#x2F; true</span><br><span class="line"></span><br><span class="line">const noLength &#x3D; checkProp(l &#x3D;&gt; l &#x3D;&#x3D;&#x3D; undefined, &#39;length&#39;);</span><br><span class="line">noLength([]); &#x2F;&#x2F; false</span><br><span class="line">noLength(&#123;&#125;); &#x2F;&#x2F; true</span><br><span class="line">noLength(new Set()); &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>作用：检查参数是否存在给定的属性。</p>
+<p>解析：给定一个检查函数，和所需检查的属性名，返回一个函数。可通过调用 返回的函数，去判定 传入的对象参数是否符合检查函数。</p>
+<h4 id="functionName"><a href="#functionName" class="headerlink" title="functionName"></a>functionName</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COPYconst functionName &#x3D; fn &#x3D;&gt; (console.debug(fn.name), fn);</span><br><span class="line"></span><br><span class="line">functionName(Math.max); &#x2F;&#x2F; max (logged in debug channel of console)</span><br></pre></td></tr></table></figure>
+
+<p>作用：打印函数名。</p>
+<p>解析：使用<code>console.debug</code>API 和函数的<code>name</code>属性，把 函数类型参数的名字 打印到控制台的 debug channel 中。</p>
+<h4 id="negate"><a href="#negate" class="headerlink" title="negate"></a>negate</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COPYconst negate &#x3D; func &#x3D;&gt; (...args) &#x3D;&gt; !func(...args);</span><br><span class="line"></span><br><span class="line">[1, 2, 3, 4, 5, 6].filter(negate(n &#x3D;&gt; n % 2 &#x3D;&#x3D;&#x3D; 0)); &#x2F;&#x2F; [ 1, 3, 5 ]</span><br></pre></td></tr></table></figure>
+
+<p>作用：反转 谓词函数（返回类型为布尔的函数）的返回结果。</p>
+<p>解析：假设有一谓词函数为<code>func = args =&gt; bool</code>，我们想要反转其结果，便可对它的调用方式进行进一步的抽象，把反转结果的逻辑放置抽象中。</p>
+<p>在本函数中，只需要一个 逻辑非运算符<code>!func(...args)</code>。</p>
+<p>而扩展运算符<code>...</code>是对参数的抽象，代表的是传入的所有参数，我们要将所有参数一个不差地传递，不可破环 谓词函数的“纯洁性”。</p>
+<h4 id="unary"><a href="#unary" class="headerlink" title="unary"></a>unary</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">COPYconst unary &#x3D; fn &#x3D;&gt; val &#x3D;&gt; fn(val);</span><br><span class="line"></span><br><span class="line">[&#39;6&#39;, &#39;8&#39;, &#39;10&#39;].map(unary(parseInt)); &#x2F;&#x2F; [6, 8, 10]</span><br></pre></td></tr></table></figure>
+
+<p>作用：参数函数调用时 只接受 参数函数的第一个参数，忽略其他参数。</p>
+<p>解析：包装一个函数，并不做任何处理：<code>wrap = fn =&gt; (...args) =&gt; fn(...args)</code></p>
+<p>很显然，如果想对传入的参数进行处理，只需对<code>args</code>动刀，而本例直接使用了单独的一个变量，忽略了其他参数。</p>
+<h3 id="普通级"><a href="#普通级" class="headerlink" title="普通级"></a>普通级</h3><h4 id="ary"><a href="#ary" class="headerlink" title="ary"></a>ary</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst ary &#x3D; (fn, n) &#x3D;&gt; (...args) &#x3D;&gt; fn(...args.slice(0, n));</span><br><span class="line"></span><br><span class="line">const firstTwoMax &#x3D; ary(Math.max, 2);</span><br><span class="line">[[2, 6, &#39;a&#39;], [6, 4, 8], [10]].map(x &#x3D;&gt; firstTwoMax(...x)); &#x2F;&#x2F; [6, 6, 1</span><br></pre></td></tr></table></figure>
+
+<p>作用：参数函数调用时 只接受 参数函数的前 n 个参数，忽略其他参数。</p>
+<p>解析：和上列逻辑如出一辙，只不过处理参数的逻辑换成了<code>...args.slice(0, n)</code>，只要前 n 个。</p>
+<h4 id="attempt"><a href="#attempt" class="headerlink" title="attempt"></a>attempt</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">COPYconst attempt &#x3D; (fn, ...args) &#x3D;&gt; &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    return fn(...args);</span><br><span class="line">  &#125; catch (e) &#123;</span><br><span class="line">    return e instanceof Error ? e : new Error(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var elements &#x3D; attempt(function(selector) &#123;</span><br><span class="line">  return document.querySelectorAll(selector);</span><br><span class="line">&#125;, &#39;&gt;_&gt;&#39;);</span><br><span class="line">if (elements instanceof Error) elements &#x3D; []; &#x2F;&#x2F; elements &#x3D; []</span><br></pre></td></tr></table></figure>
+
+<p>作用：对 参数函数 进行异常捕获，如果有异常则抛出。</p>
+<p>解析：对 参数函数 进行进一步封装，本例封装的逻辑是<code>try catch</code>，即捕获参数函数的异常。</p>
+<p>很久之前，我看到过一个关于<code>java8</code>的 attempt 片段，里面还增加了重试逻辑。</p>
+<p>js 实现代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">COPYconst attempt &#x3D; (fn, ...args, count, bound) &#x3D;&gt; &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    return fn(...args);</span><br><span class="line">  &#125; catch (e) &#123;</span><br><span class="line">    if(count &#x3D;&#x3D; bound)&#123;</span><br><span class="line">      return e instanceof Error ? e : new Error(e);</span><br><span class="line">    &#125;</span><br><span class="line">    return attempt(fn, ...args, count + 1, bound)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">COPYconst bind &#x3D; (fn, context, ...boundArgs) &#x3D;&gt; (...args) &#x3D;&gt; fn.apply(context, [...boundArgs, ...args]);</span><br><span class="line"></span><br><span class="line">function greet(greeting, punctuation) &#123;</span><br><span class="line">  return greeting + &#39; &#39; + this.user + punctuation;</span><br><span class="line">&#125;</span><br><span class="line">const freddy &#x3D; &#123; user: &#39;fred&#39; &#125;;</span><br><span class="line">const freddyBound &#x3D; bind(greet, freddy);</span><br><span class="line">console.log(freddyBound(&#39;hi&#39;, &#39;!&#39;)); &#x2F;&#x2F; &#39;hi fred!&#39;</span><br></pre></td></tr></table></figure>
+
+<p>作用：原生 API-<code>bind</code>的另一种实现。</p>
+<p><code>fn.bind(context,...args)</code> =&gt; <code>bind(fn,context,...args)</code></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">MDN 关于 bind 的解释</a>：</p>
+<blockquote>
+<p><code>bind()</code> 方法创建一个新的函数，在 <code>bind()</code> 被调用时，这个新函数的 <code>this</code> 被指定为 <code>bind()</code> 的第一个参数，而其余参数将作为新函数的参数，供调用时使用。</p>
+</blockquote>
+<p>解析：首先，使用了<code>apply</code>将给定的 上下文参数 应用于 参数函数。</p>
+<p>其次，利用 apply 只接受数组作为参数的规定，将最初传入的参数，和后续传入的参数按顺序合并在一个数组中传递进去。</p>
+<h4 id="bindKey"><a href="#bindKey" class="headerlink" title="bindKey"></a>bindKey</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">COPYconst bindKey &#x3D; (context, fn, ...boundArgs) &#x3D;&gt; (...args) &#x3D;&gt;</span><br><span class="line">  context[fn].apply(context, [...boundArgs, ...args]);</span><br><span class="line"></span><br><span class="line">const freddy &#x3D; &#123;</span><br><span class="line">  user: &#39;fred&#39;,</span><br><span class="line">  greet: function(greeting, punctuation) &#123;</span><br><span class="line">    return greeting + &#39; &#39; + this.user + punctuation;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">const freddyBound &#x3D; bindKey(freddy, &#39;greet&#39;);</span><br><span class="line">console.log(freddyBound(&#39;hi&#39;, &#39;!&#39;)); &#x2F;&#x2F; &#39;hi fred!&#39;</span><br></pre></td></tr></table></figure>
+
+<p>作用：把上列中的<code>fn</code>换成了<code>context[fn]</code>。</p>
+<p>解析：我们原来的 参数函数 变成了一个 上下文参数的一个属性，而将这个属性依附于上下文对象就成了一个函数<code>context[fn]</code>。</p>
+<p>可以说，这个一个调用方式特殊的<code>bind</code>。</p>
+<h4 id="call"><a href="#call" class="headerlink" title="call"></a>call</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst call &#x3D; (key, ...args) &#x3D;&gt; context &#x3D;&gt; context[key](...args);</span><br><span class="line"></span><br><span class="line">Promise.resolve([1, 2, 3])</span><br><span class="line">  .then(call(&#39;map&#39;, x &#x3D;&gt; 2 * x))</span><br><span class="line">  .then(console.log); &#x2F;&#x2F; [ 2, 4, 6 ]</span><br><span class="line">const map &#x3D; call.bind(null, &#39;map&#39;);</span><br><span class="line">Promise.resolve([1, 2, 3])</span><br><span class="line">  .then(map(x &#x3D;&gt; 2 * x))</span><br><span class="line">  .then(console.log); &#x2F;&#x2F; [ 2, 4, 6 ]</span><br></pre></td></tr></table></figure>
+
+<p>作用：动态改变函数执行的上下文。</p>
+<p>解析：给定一个属性参数，再给定一组调用参数，返回一个接受上下文对象的函数，并最终组合调用。</p>
+<p>其实这里面暗含了一个约束，很显然，<code>context[key]</code>必须是一个函数。</p>
+<p>这个片段本质是对上下文的抽象。举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst filterMen &#x3D; call(&#39;filter&#39;, person &#x3D;&gt; person.sex &#x3D;&#x3D;&#x3D; &#39;man&#39;)</span><br><span class="line"></span><br><span class="line">filterMen([&#123;sex:&#39;woman&#39;,...&#125;,&#123;sex:&#39;man&#39;,...&#125;,...])</span><br><span class="line">&#x2F;&#x2F; 如果有其他 上下文对象，本例中也就是数组 需要相同的 逻辑过滤呢？</span><br></pre></td></tr></table></figure>
+
+<h4 id="chainAsync"><a href="#chainAsync" class="headerlink" title="chainAsync"></a>chainAsync</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">COPYconst chainAsync &#x3D; fns &#x3D;&gt; &#123;</span><br><span class="line">  let curr &#x3D; 0;</span><br><span class="line">  const last &#x3D; fns[fns.length - 1];</span><br><span class="line">  const next &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">    const fn &#x3D; fns[curr++];</span><br><span class="line">    fn &#x3D;&#x3D;&#x3D; last ? fn() : fn(next);</span><br><span class="line">  &#125;;</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">chainAsync([</span><br><span class="line">  next &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;0 seconds&#39;);</span><br><span class="line">    setTimeout(next, 1000);</span><br><span class="line">  &#125;,</span><br><span class="line">  next &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;1 second&#39;);</span><br><span class="line">    setTimeout(next, 1000);</span><br><span class="line">  &#125;,</span><br><span class="line">  () &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;2 second&#39;);</span><br><span class="line">  &#125;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>作用：将 函数数组转换为有决策权的链式函数调用。</p>
+<p>我为什么称之有决策权的链式函数调用呢？</p>
+<p>因为每个函数都会接受一个 next 方法参数，它代表的就是调用链中的下一个函数，所以什么时候调用下一个函数，要不要调用，决策权在你。</p>
+<p>解析：其实这个片段很简单。</p>
+<p>首先，<code>fns</code> 类型一个函数数组，其中除了最后一个函数都有隐含的约束，可以选择接受 next 参数。</p>
+<p>而 next 参数的含义就是调用链中的下一个函数，说白了 就是数组中的下一个成员。</p>
+<p>而最后一个函数是无参函数。</p>
+<p>片段中复杂点在于：利用闭包存储了两个关键变量。</p>
+<p>第一个是 调用链中的函数游标:<code>curr</code>；第二个是结束标志，最后一个函数:<code>last</code>。</p>
+<p>每次链式向下调用前，都会进行一些逻辑处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst next &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  const fn &#x3D; fns[curr++];</span><br><span class="line">  fn &#x3D;&#x3D;&#x3D; last ? fn() : fn(next);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>先取出当前游标所在函数，再把游标指向下一个函数。</p>
+<p>然后，判断是否是最后一个函数，是则直接调用，结束；反之，传入 next 调用。</p>
+<p>如果，你是一个后端开发者，可以把其理解为中间件的工作模式。</p>
+<h4 id="collectInto"><a href="#collectInto" class="headerlink" title="collectInto"></a>collectInto</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst collectInto &#x3D; fn &#x3D;&gt; (...args) &#x3D;&gt; fn(args);</span><br><span class="line"></span><br><span class="line">const Pall &#x3D; collectInto(Promise.all.bind(Promise));</span><br><span class="line">let p1 &#x3D; Promise.resolve(1);</span><br><span class="line">let p2 &#x3D; Promise.resolve(2);</span><br><span class="line">let p3 &#x3D; new Promise(resolve &#x3D;&gt; setTimeout(resolve, 2000, 3));</span><br><span class="line">Pall(p1, p2, p3).then(console.log); &#x2F;&#x2F; [1, 2, 3] (after about 2 seconds)</span><br></pre></td></tr></table></figure>
+
+<p>作用：将接受数组的函数更改为接受可变参数。</p>
+<p>分析：利用了扩展运算符的性质，<code>...args</code>代表的是所有参数组成的数组，然后将这数组传递进去调用。</p>
+<p>可别小看了这一片段，调用方式的改变会决定很多上层逻辑。</p>
+<p>平常我们大概率都会，建立一个数组，收集所需的异步函数。</p>
+<p>在本例中，很明显的看到 从参数为数组类型的约束 中解放了出来。</p>
+<h4 id="compose"><a href="#compose" class="headerlink" title="compose"></a>compose</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">COPYconst compose &#x3D; (...fns) &#x3D;&gt; fns.reduce((f, g) &#x3D;&gt; (...args) &#x3D;&gt; f(g(...args)));</span><br><span class="line"></span><br><span class="line">const substract3 &#x3D; x &#x3D;&gt; x - 3;</span><br><span class="line">const add5 &#x3D; x &#x3D;&gt; x + 5;</span><br><span class="line">const multiply &#x3D; (x, y) &#x3D;&gt; x * y;</span><br><span class="line">const multiplyAndAdd5AndSubstract3 &#x3D; compose(</span><br><span class="line">  substract3,</span><br><span class="line">  add5,</span><br><span class="line">  multiply</span><br><span class="line">);</span><br><span class="line">multiplyAndAdd5AndSubstract3(5, 2); &#x2F;&#x2F; 12</span><br></pre></td></tr></table></figure>
+
+<p>作用：将传入的多个[异步]函数以组合的方式 调用。</p>
+<p>先将参数传入最后一个[异步]函数，然后将得到的结果，传入倒数第二个[异步]函数，以此类推。</p>
+<p><code>compose</code>可以说是函数式编程的经典片段。</p>
+<p>它的具体意义可以说是逻辑分层。像洋葱一样，一层一层地处理数据。</p>
+<p>解析：fns 代表的是 传入的多个函数 组成的数组。</p>
+<p>利用<code>reduce</code>方法实现函数的“洋葱”包裹。</p>
+<p>因为这种逻辑语义表示效果不好，就直接上上面例子的代码流程了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">COPYreduce 第一次循环:</span><br><span class="line">f: substract3; </span><br><span class="line">g: add5; </span><br><span class="line">返回结果：(...args) &#x3D;&gt; substract3(add5(...args));</span><br><span class="line"></span><br><span class="line">reduce 第二次循环：</span><br><span class="line">f: (...args) &#x3D;&gt; substract3(add5(...args)); </span><br><span class="line">g: multiply; </span><br><span class="line">返回结果：</span><br><span class="line">(...args1) &#x3D;&gt; ((...args2) &#x3D;&gt; substract3(add5(...args2)))(multiply(...args1))</span><br><span class="line">优化后:</span><br><span class="line">(...args) &#x3D;&gt; substract3(add5(multiply(...args)));</span><br><span class="line">循环下去，以此类推...</span><br><span class="line"></span><br><span class="line">最后的返回的形式：</span><br><span class="line">(...args) &#x3D;&gt; 第一个函数(第二个函数(第三个函数(...最后一个函数(...args))))</span><br></pre></td></tr></table></figure>
+
+<p>PS: 说实话，我并不喜欢 compose，在上例中就可以很明显的看到缺点。</p>
+<p>把很多函数组合起来，第一是缺少语义化，与之对应的例子就是 Promise 的 then 调用链，语义鲜明；</p>
+<p>第二是无法添加函数与函数之间的抽象逻辑，只能一次写好。</p>
+<p>第三是各个函数之间存在隐含的参数约束，很可怕的。</p>
+<h4 id="composeRight"><a href="#composeRight" class="headerlink" title="composeRight"></a>composeRight</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst composeRight &#x3D; (...fns) &#x3D;&gt; fns.reduce((f, g) &#x3D;&gt; (...args) &#x3D;&gt; g(f(...args)));</span><br><span class="line"></span><br><span class="line">const add &#x3D; (x, y) &#x3D;&gt; x + y;</span><br><span class="line">const square &#x3D; x &#x3D;&gt; x * x;</span><br><span class="line">const substract3 &#x3D; x &#x3D;&gt; x - 3;</span><br><span class="line">const addAndSquare &#x3D; composeRight(add, square,substract3);</span><br><span class="line">addAndSquareAndSubstract3(1, 2); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<p>作用：将传入的多个[异步]函数以组合的方式 调用。</p>
+<p>先将参数传入第一个[异步]函数，然后将得到的结果，传入第二个[异步]函数，以此类推。</p>
+<h4 id="converge"><a href="#converge" class="headerlink" title="converge"></a>converge</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst converge &#x3D; (converger, fns) &#x3D;&gt; (...args) &#x3D;&gt; converger(...fns.map(fn &#x3D;&gt; fn.apply(null, args)));</span><br><span class="line"></span><br><span class="line">const average &#x3D; converge((a, b) &#x3D;&gt; a &#x2F; b, [</span><br><span class="line">  arr &#x3D;&gt; arr.reduce((a, v) &#x3D;&gt; a + v, 0),</span><br><span class="line">  arr &#x3D;&gt; arr.length</span><br><span class="line">]);</span><br><span class="line">average([1, 2, 3, 4, 5, 6, 7]); &#x2F;&#x2F; 4</span><br></pre></td></tr></table></figure>
+
+<p>作用：将 函数数组的返回结果 传递到<code>converger</code>函数，进一步处理，可用作分析统计。</p>
+<p>解析: 使用<code>map</code> 和<code>apply</code>将参数数据传递给每个处理函数，并将处理后的结果交给<code>converger</code>函数。</p>
+<h4 id="curry"><a href="#curry" class="headerlink" title="curry"></a>curry</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPYconst curry &#x3D; (fn, arity &#x3D; fn.length, ...args) &#x3D;&gt;</span><br><span class="line">  arity &lt;&#x3D; args.length ? fn(...args) : curry.bind(null, fn, arity, ...args);</span><br><span class="line"></span><br><span class="line">curry(Math.pow)(2)(10); &#x2F;&#x2F; 1024</span><br><span class="line">curry(Math.min, 3)(10)(50)(2); &#x2F;&#x2F; 2</span><br></pre></td></tr></table></figure>
+
+<p>作用：函数柯里化。</p>
+<p>柯里化不管在是函数式思维的理解，还是现实面试中，都非常的重要。</p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9F%AF%E9%87%8C%E5%8C%96">维基百科上 柯里化的解释</a>：</p>
+<blockquote>
+<p>把接受多个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%83%E6%95%B8_(%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)">参数</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0">函数</a>变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数</p>
+</blockquote>
+<p>解析：这个<code>bind</code>用得真是神了，借助它积累每次传进来的参数，等到参数足够时，再调用。</p>
+<h4 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">COPYconst debounce &#x3D; (fn, ms &#x3D; 0) &#x3D;&gt; &#123;</span><br><span class="line">  let timeoutId;</span><br><span class="line">  return function(...args) &#123;</span><br><span class="line">    clearTimeout(timeoutId);</span><br><span class="line">    timeoutId &#x3D; setTimeout(() &#x3D;&gt; fn.apply(this, args), ms);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.addEventListener(</span><br><span class="line">  &#39;resize&#39;,</span><br><span class="line">  debounce(() &#x3D;&gt; &#123;</span><br><span class="line">    console.log(window.innerWidth);</span><br><span class="line">    console.log(window.innerHeight);</span><br><span class="line">  &#125;, 250)</span><br><span class="line">); &#x2F;&#x2F; Will log the window dimensions at most every 250ms</span><br></pre></td></tr></table></figure>
+
+<p>作用：函数防抖。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/5">什么是防抖和节流？有什么区别？如何实现？</a> 一文中关于防抖解释：</p>
+<blockquote>
+<p>触发高频事件后 n 秒内函数只会执行一次，如果 n 秒内高频事件再次被触发，则重新计算时间。</p>
+</blockquote>
+<p>同样，防抖也是面试必考的点。</p>
+<p>解析: 传入需防抖的函数，和防抖的时间间隔，返回一个已防抖化的函数。</p>
+<p>主要借助<code>setTimeout</code>和<code>function + apply</code>保存上下文完成。</p>
+<p>每次调用函数前，都执行一遍<code>clearTimeout</code>，保证重新计算调用时间。</p>
+<p>无论是调用多么频繁的函数都会在指定时间的间隔后只运行一次。</p>
+<h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst defer &#x3D; (fn, ...args) &#x3D;&gt; setTimeout(fn, 1, ...args);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Example A:</span><br><span class="line">defer(console.log, &#39;a&#39;), console.log(&#39;b&#39;); &#x2F;&#x2F; logs &#39;b&#39; then &#39;a&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Example B:</span><br><span class="line">document.querySelector(&#39;#someElement&#39;).innerHTML &#x3D; &#39;Hello&#39;;</span><br><span class="line">longRunningFunction(); &#x2F;&#x2F; Browser will not update the HTML until this has finished</span><br><span class="line">defer(longRunningFunction); &#x2F;&#x2F; Browser will update the HTML then run the function</span><br></pre></td></tr></table></figure>
+
+<p>作用：推迟调用函数，直到清除当前调用堆栈。</p>
+<p>可适用于推迟 cpu 密集型计算，以免阻塞渲染引擎工作。</p>
+<p>分析：使用<code>setTimeout</code>（超时时间为 1ms）将 函数参数 添加到浏览器事件队列末尾。</p>
+<p>因为 JavaScript 是单线程执行，先是主线程执行完毕，然后在读取事件队列中的代码执行。</p>
+<p>如果主线程有运行时间太长的函数，会阻塞页面渲染，所以将其放置到事件队列。</p>
+<h4 id="delay"><a href="#delay" class="headerlink" title="delay"></a>delay</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst delay &#x3D; (fn, wait, ...args) &#x3D;&gt; setTimeout(fn, wait, ...args);</span><br><span class="line"></span><br><span class="line">delay(</span><br><span class="line">  function(text) &#123;</span><br><span class="line">    console.log(text);</span><br><span class="line">  &#125;,</span><br><span class="line">  1000,</span><br><span class="line">  &#39;later&#39;</span><br><span class="line">); &#x2F;&#x2F; Logs &#39;later&#39; after one second.</span><br></pre></td></tr></table></figure>
+
+<p>作用：延迟函数执行。</p>
+<p>是的，它和<code>defer</code>非常像，但使用场景却是不一样。</p>
+<p>defer 的目的是将占据主线程时间长的函数推迟到事件队列。</p>
+<p>而 delay 只是字面意思，延迟执行。</p>
+<p>解析：对 <code>setTimeout</code> 进行语义化封装。</p>
+<h4 id="flip"><a href="#flip" class="headerlink" title="flip"></a>flip</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst flip &#x3D; fn &#x3D;&gt; (first, ...rest) &#x3D;&gt; fn(...rest, first);</span><br><span class="line"></span><br><span class="line">let a &#x3D; &#123; name: &#39;John Smith&#39; &#125;;</span><br><span class="line">let b &#x3D; &#123;&#125;;</span><br><span class="line">const mergeFrom &#x3D; flip(Object.assign);</span><br><span class="line">let mergePerson &#x3D; mergeFrom.bind(null, a);</span><br><span class="line">mergePerson(b); &#x2F;&#x2F; &#x3D;&#x3D; b</span><br><span class="line">b &#x3D; &#123;&#125;;</span><br><span class="line">Object.assign(b, a); &#x2F;&#x2F; &#x3D;&#x3D; b</span><br></pre></td></tr></table></figure>
+
+<p>作用：对 参数函数 的输入数据进行进一步处理，将数据的第一个参数与其余参数位置对调。</p>
+<p>解析：主要利用 扩展运算符的性质，对参数的位置进行调整。</p>
+<p>如果你不了解这一语言特性，可参考阮一峰老师的<a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/destructuring">ES6 入门</a>。</p>
+<h4 id="hz"><a href="#hz" class="headerlink" title="hz"></a>hz</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">COPYconst hz &#x3D; (fn, iterations &#x3D; 100) &#x3D;&gt; &#123;</span><br><span class="line">  const before &#x3D; performance.now();</span><br><span class="line">  for (let i &#x3D; 0; i &lt; iterations; i++) fn();</span><br><span class="line">  return (1000 * iterations) &#x2F; (performance.now() - before);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 10,000 element array</span><br><span class="line">const numbers &#x3D; Array(10000)</span><br><span class="line">  .fill()</span><br><span class="line">  .map((_, i) &#x3D;&gt; i);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Test functions with the same goal: sum up the elements in the array</span><br><span class="line">const sumReduce &#x3D; () &#x3D;&gt; numbers.reduce((acc, n) &#x3D;&gt; acc + n, 0);</span><br><span class="line">const sumForLoop &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">  let sum &#x3D; 0;</span><br><span class="line">  for (let i &#x3D; 0; i &lt; numbers.length; i++) sum +&#x3D; numbers[i];</span><br><span class="line">  return sum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#96;sumForLoop&#96; is nearly 10 times faster</span><br><span class="line">Math.round(hz(sumReduce)); &#x2F;&#x2F; 572</span><br><span class="line">Math.round(hz(sumForLoop)); &#x2F;&#x2F; 4784</span><br></pre></td></tr></table></figure>
+
+<p>作用：返回函数每秒执行一次的次数。</p>
+<p>hz 是赫兹的单位（频率的单位）定义为每秒一个周期。</p>
+<p>解析：通过两次使用<code>performance.now</code>获取<code>iterations</code>次迭代前后的毫秒差。</p>
+<p>然后将毫秒转换为秒并除以经过的时间，可以得到每秒的函数执行次数。</p>
+<p>PS: 此处，并没有太好的个人理解，翻译自<a target="_blank" rel="noopener" href="https://www.30secondsofcode.org/js/s/hz/">官方</a>。</p>
+<h4 id="once"><a href="#once" class="headerlink" title="once"></a>once</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">COPYconst once &#x3D; fn &#x3D;&gt; &#123;</span><br><span class="line">  let called &#x3D; false;</span><br><span class="line">  return function(...args) &#123;</span><br><span class="line">    if (called) return;</span><br><span class="line">    called &#x3D; true;</span><br><span class="line">    return fn.apply(this, args);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const startApp &#x3D; function(event) &#123;</span><br><span class="line">  console.log(this, event); &#x2F;&#x2F; document.body, MouseEvent</span><br><span class="line">&#125;;</span><br><span class="line">document.body.addEventListener(&#39;click&#39;, once(startApp)); &#x2F;&#x2F; only runs &#96;startApp&#96; once upon click</span><br></pre></td></tr></table></figure>
+
+<p>作用：确保一个函数只被调用一次。</p>
+<p>分析：因为 JavaScript 是单线程执行环境，不需要考虑并发环境，直接一个内部变量存到闭包中，每次调用前判断，并在第一次调用时，修改其值，让后续调用全部失效。</p>
+<p>给你看一下 Go 的 once，官方是通过<code>atomic</code>库实现的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">COPYpackage sync</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;sync&#x2F;atomic&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">type Once struct &#123;</span><br><span class="line">    m    Mutex</span><br><span class="line">    done uint32</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func (o *Once) Do(f func()) &#123;</span><br><span class="line">    if atomic.LoadUint32(&amp;o.done) &#x3D;&#x3D; 1 &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    o.m.Lock()</span><br><span class="line">    defer o.m.Unlock()</span><br><span class="line">    if o.done &#x3D;&#x3D; 0 &#123;</span><br><span class="line">        defer atomic.StoreUint32(&amp;o.done, 1)</span><br><span class="line">        f()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="over"><a href="#over" class="headerlink" title="over"></a>over</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst over &#x3D; (...fns) &#x3D;&gt; (...args) &#x3D;&gt; fns.map(fn &#x3D;&gt; fn.apply(null, args));</span><br><span class="line"></span><br><span class="line">const minMax &#x3D; over(Math.min, Math.max);</span><br><span class="line">minMax(1, 2, 3, 4, 5); &#x2F;&#x2F; [1,5]</span><br></pre></td></tr></table></figure>
+
+<p>作用：利用函数数组，对接下来的输入数据进行处理，得到每个函数处理后的结果数组。</p>
+<p>解析：使用<code>map</code>和<code>apply</code>将输入的数据传递到每个函数中进行处理。</p>
+<h4 id="overArgs"><a href="#overArgs" class="headerlink" title="overArgs"></a>overArgs</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">COPYconst overArgs &#x3D; (fn, transforms) &#x3D;&gt; (...args) &#x3D;&gt; fn(...args.map((val, i) &#x3D;&gt; transforms[i](val)));</span><br><span class="line"></span><br><span class="line">const square &#x3D; n &#x3D;&gt; n * n;</span><br><span class="line">const double &#x3D; n &#x3D;&gt; n * 2;</span><br><span class="line">const fn &#x3D; overArgs((x, y) &#x3D;&gt; [x, y], [square, double]);</span><br><span class="line">fn(9, 3); &#x2F;&#x2F; [81, 6]</span><br></pre></td></tr></table></figure>
+
+<p>作用：利用 transforms 函数数组，分别处理相应位置的输入数据，并把结果传递进给定函数。</p>
+<p>解析：transforms 函数数组 和参数必须位置对应，这个约束有点强啊。</p>
+<h4 id="partial"><a href="#partial" class="headerlink" title="partial"></a>partial</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPYconst partial &#x3D; (fn, ...partials) &#x3D;&gt; (...args) &#x3D;&gt; fn(...partials, ...args);</span><br><span class="line"></span><br><span class="line">const greet &#x3D; (greeting, name) &#x3D;&gt; greeting + &#39; &#39; + name + &#39;!&#39;;</span><br><span class="line">const greetHello &#x3D; partial(greet, &#39;Hello&#39;);</span><br><span class="line">greetHello(&#39;John&#39;); &#x2F;&#x2F; &#39;Hello John!&#39;</span><br></pre></td></tr></table></figure>
+
+<p>作用：将调用函数的数据分为两次输入，并按正序调用。</p>
+<p>解析：两次使用扩展运算符（…），保存不同时期的数据，最后调用。</p>
+<h4 id="partialRight"><a href="#partialRight" class="headerlink" title="partialRight"></a>partialRight</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPYconst partialRight &#x3D; (fn, ...partials) &#x3D;&gt; (...args) &#x3D;&gt; fn(...args, ...partials);</span><br><span class="line"></span><br><span class="line">const greet &#x3D; (greeting, name) &#x3D;&gt; greeting + &#39; &#39; + name + &#39;!&#39;;</span><br><span class="line">const greetJohn &#x3D; partialRight(greet, &#39;John&#39;);</span><br><span class="line">greetJohn(&#39;Hello&#39;); &#x2F;&#x2F; &#39;Hello John!&#39;</span><br></pre></td></tr></table></figure>
+
+<p>作用：将调用函数的数据分为两次输入，并按反序调用。</p>
+<p>解析：两次使用扩展运算符（…），保存不同时期的数据，最后调用。</p>
+<h4 id="pipeAsyncFunctions"><a href="#pipeAsyncFunctions" class="headerlink" title="pipeAsyncFunctions"></a>pipeAsyncFunctions</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">COPYconst pipeAsyncFunctions &#x3D; (...fns) &#x3D;&gt; arg &#x3D;&gt; fns.reduce((p, f) &#x3D;&gt; p.then(f), Promise.resolve(arg));</span><br><span class="line"></span><br><span class="line">const sum &#x3D; pipeAsyncFunctions(</span><br><span class="line">  x &#x3D;&gt; x + 1,</span><br><span class="line">  x &#x3D;&gt; new Promise(resolve &#x3D;&gt; setTimeout(() &#x3D;&gt; resolve(x + 2), 1000)),</span><br><span class="line">  x &#x3D;&gt; x + 3,</span><br><span class="line">  async x &#x3D;&gt; (await x) + 4</span><br><span class="line">);</span><br><span class="line">(async () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(await sum(5)); &#x2F;&#x2F; 15 (after one second)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>作用：将传入的多个[异步]函数按照正序 依次调用。</p>
+<p>解析：结合<code>reduce</code>和<code>Promise.then</code>，将数据按照正序传递到每个[异步]函数,进行处理，处理的结果又传给下一个[异步]函数，以此类推。</p>
+<h4 id="promisify"><a href="#promisify" class="headerlink" title="promisify"></a>promisify</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst promisify &#x3D; func &#x3D;&gt; (...args) &#x3D;&gt;</span><br><span class="line">  new Promise((resolve, reject) &#x3D;&gt;</span><br><span class="line">    func(...args, (err, result) &#x3D;&gt; (err ? reject(err) : resolve(result)))</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">const delay &#x3D; promisify((d, cb) &#x3D;&gt; setTimeout(cb, d));</span><br><span class="line">delay(2000).then(() &#x3D;&gt; console.log(&#39;Hi!&#39;)); &#x2F;&#x2F; &#x2F;&#x2F; Promise resolves after 2s</span><br></pre></td></tr></table></figure>
+
+<p>作用：将回调函数改为<code>Promise</code>方式处理结果。</p>
+<p>在 Node8+ ，你可以使用<em>util.promisify</em></p>
+<p>解析：首先接受给定的回调函数，然后直接在 Promise 中调用该函数。</p>
+<p>因为回调函数的结果按照规范永远是最后一个参数，我们只需要在函数调用时，把最后一个参数换成 Promise 的方式，即：如果回调函数出现错误则 reject，反之 resolve。</p>
+<p>注意：被 promisify 的函数必须接受回调参数且后续会调用。</p>
+<h4 id="rearg"><a href="#rearg" class="headerlink" title="rearg"></a>rearg</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst rearg &#x3D; (fn, indexes) &#x3D;&gt; (...args) &#x3D;&gt; fn(...indexes.map(i &#x3D;&gt; args[i]));</span><br><span class="line"></span><br><span class="line">var rearged &#x3D; rearg(</span><br><span class="line">  function(a, b, c) &#123;</span><br><span class="line">    return [a, b, c];</span><br><span class="line">  &#125;,</span><br><span class="line">  [2, 0, 1]</span><br><span class="line">);</span><br><span class="line">rearged(&#39;b&#39;, &#39;c&#39;, &#39;a&#39;); &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>作用：根据指定的索引重新排列传入的参数。</p>
+<p>解析：利用<code>map</code>结合扩展运算符，重新排列传入的参数，并将转换后的参数传递给 fn。</p>
+<h4 id="runPromisesInSeries"><a href="#runPromisesInSeries" class="headerlink" title="runPromisesInSeries"></a>runPromisesInSeries</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPYconst runPromisesInSeries &#x3D; ps &#x3D;&gt; ps.reduce((p, next) &#x3D;&gt; p.then(next), Promise.resolve());</span><br><span class="line"></span><br><span class="line">const delay &#x3D; d &#x3D;&gt; new Promise(r &#x3D;&gt; setTimeout(r, d));</span><br><span class="line">runPromisesInSeries([() &#x3D;&gt; delay(1000), () &#x3D;&gt; delay(2000)]); </span><br><span class="line">&#x2F;&#x2F; Executes each promise sequentially, taking a total of 3 seconds to complete</span><br></pre></td></tr></table></figure>
+
+<p>作用：按照正序 运行给定的多个返回类型为 Promise 函数。</p>
+<p>解析：使用<code>reduce</code>创建一个 Promise 链，每次运行完一个传入的 Promise，都会返回最外部的<code>Promise.then</code>，从而进行下一次调用。</p>
+<h4 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COPYconst sleep &#x3D; ms &#x3D;&gt; new Promise(resolve &#x3D;&gt; setTimeout(resolve, ms));</span><br><span class="line"></span><br><span class="line">async function sleepyWork() &#123;</span><br><span class="line">  console.log(&quot;I&#39;m going to sleep for 1 second.&quot;);</span><br><span class="line">  await sleep(1000);</span><br><span class="line">  console.log(&#39;I woke up after 1 second.&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>作用: 延迟异步函数的执行。</p>
+<p>解析：创建一个接受毫秒数的函数，并结合<code>setTimeout</code>，在给定的毫秒数后，返回一个<code>resolve</code>状态的 Promise。</p>
+<p>使用场景：利用异步函数的“同步”机制(await)，使其在异步函数中达到“睡眠”的效果。</p>
+<h4 id="spreadOver"><a href="#spreadOver" class="headerlink" title="spreadOver"></a>spreadOver</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COPYconst spreadOver &#x3D; fn &#x3D;&gt; argsArr &#x3D;&gt; fn(...argsArr);</span><br><span class="line"></span><br><span class="line">const arrayMax &#x3D; spreadOver(Math.max);</span><br><span class="line">arrayMax([1, 2, 3]); &#x2F;&#x2F; 3</span><br></pre></td></tr></table></figure>
+
+<p>作用：将接受可变参数的函数更改为接受数组。</p>
+<p>如果你认真读了文章，就会发现这是<code>collectInto</code>函数的反模式。</p>
+<p>分析：利用了扩展运算符的性质，将传递进来的数组解构再交给处理函数。</p>
+<h4 id="times"><a href="#times" class="headerlink" title="times"></a>times</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">COPYconst times &#x3D; (n, fn, context &#x3D; undefined) &#x3D;&gt; &#123;</span><br><span class="line">  let i &#x3D; 0;</span><br><span class="line">  while (fn.call(context, i) !&#x3D;&#x3D; false &amp;&amp; ++i &lt; n) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var output &#x3D; &#39;&#39;;</span><br><span class="line">times(5, i &#x3D;&gt; (output +&#x3D; i));</span><br><span class="line">console.log(output); &#x2F;&#x2F; 01234</span><br></pre></td></tr></table></figure>
+
+<p>作用：将给定的函数，迭代执行 n 次。</p>
+<p>分析：使用<code>Function.call</code>迭代调用给定的函数，并把迭代的次数传进函数第一个参数。</p>
+<p>如果函数返回 false 可提前退出。</p>
+<h4 id="uncurry"><a href="#uncurry" class="headerlink" title="uncurry"></a>uncurry</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst uncurry &#x3D; (fn, n &#x3D; 1) &#x3D;&gt; (...args) &#x3D;&gt; &#123;</span><br><span class="line">  const next &#x3D; acc &#x3D;&gt; args &#x3D;&gt; args.reduce((x, y) &#x3D;&gt; x(y), acc);</span><br><span class="line">  if (n &gt; args.length) throw new RangeError(&#39;Arguments too few!&#39;);</span><br><span class="line">  return next(fn)(args.slice(0, n));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const add &#x3D; x &#x3D;&gt; y &#x3D;&gt; z &#x3D;&gt; x + y + z;</span><br><span class="line">const uncurriedAdd &#x3D; uncurry(add, 3);</span><br><span class="line">uncurriedAdd(1, 2, 3); &#x2F;&#x2F; 6</span><br></pre></td></tr></table></figure>
+
+<p>作用：函数反柯里化。</p>
+<p>柯里化是将接受多个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%83%E6%95%B8_(%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88)">参数</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0">函数</a>变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数。</p>
+<p>而反柯里化就是将多个接受参数的层层函数，铺平。</p>
+<p>解析：反柯里化的关键代码在于 <code>args.reduce((x, y) =&gt; x(y), acc)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">COPY在上例中,</span><br><span class="line">args: [1,2,3]</span><br><span class="line">acc: x &#x3D;&gt; y &#x3D;&gt; z &#x3D;&gt; x + y + z</span><br><span class="line"></span><br><span class="line">第一次循环：</span><br><span class="line">x：x &#x3D;&gt; y &#x3D;&gt; z &#x3D;&gt; x + y + z</span><br><span class="line">y：1</span><br><span class="line">返回结果：y &#x3D;&gt; z &#x3D;&gt; 1 + y + z</span><br><span class="line"></span><br><span class="line">第二次循环:</span><br><span class="line">x: y &#x3D;&gt; z &#x3D;&gt; 1 + y + z</span><br><span class="line">y: 2</span><br><span class="line">返回结果：z &#x3D;&gt; 1 + 2 + z</span><br><span class="line"></span><br><span class="line">最后一次循环的结果，即 1 + 2 +3</span><br></pre></td></tr></table></figure>
+
+<p>可以看出，每次一循环，都会利用闭包”填充”一个所需变量。</p>
+<p>返回的结果分为两种情况：</p>
+<p>一是 一个保留了 n 个前置参数的函数。</p>
+<p>二是层叠函数中最后一个函数的返回结果。</p>
+<p>值得一提的是，在源码中使用了<code>slice(0，n)</code>保留适当数量的参数。</p>
+<p>如果提供的参数的个数小于给定的解析长度，就会抛出错误。</p>
+<h4 id="unfold"><a href="#unfold" class="headerlink" title="unfold"></a>unfold</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">COPYconst unfold &#x3D; (fn, seed) &#x3D;&gt; &#123;</span><br><span class="line">  let result &#x3D; [],</span><br><span class="line">    val &#x3D; [null, seed];</span><br><span class="line">  while ((val &#x3D; fn(val[1]))) result.push(val[0]);</span><br><span class="line">  return result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var f &#x3D; n &#x3D;&gt; (n &gt; 50 ? false : [-n, n + 10]);</span><br><span class="line">unfold(f, 10); &#x2F;&#x2F; [-10, -20, -30, -40, -50]</span><br></pre></td></tr></table></figure>
+
+<p>作用：使用种子值以及特殊的数据存储与迭代方式构建一个数组。</p>
+<p>解析: 我为什么说数据存储与迭代方式很特殊呢？</p>
+<p>迭代的变量与结果值，保存在同一数组里，用 01 下标区分。</p>
+<p>而迭代的函数，也需要满足这一规范，返回同样的数组[value，nextSeed]，保证下一次迭代，或者返回 false 终止过程。</p>
+<h4 id="when"><a href="#when" class="headerlink" title="when"></a>when</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">COPYconst when &#x3D; (pred, whenTrue) &#x3D;&gt; x &#x3D;&gt; (pred(x) ? whenTrue(x) : x);</span><br><span class="line"></span><br><span class="line">const doubleEvenNumbers &#x3D; when(x &#x3D;&gt; x % 2 &#x3D;&#x3D;&#x3D; 0, x &#x3D;&gt; x * 2);</span><br><span class="line">doubleEvenNumbers(2); &#x2F;&#x2F; 4</span><br><span class="line">doubleEvenNumbers(1); &#x2F;&#x2F; 1</span><br></pre></td></tr></table></figure>
+
+<p>作用：根据<code>pred</code>函数测试给定数据。如结果为真，则执行<code>whenTrue</code>函数；反之，返回数据。</p>
+<p>解析: 我喜欢语义化的封装，可大幅提升代码的可读性，减少逻辑负担。</p>
+<h3 id="专家级"><a href="#专家级" class="headerlink" title="专家级"></a>专家级</h3><h4 id="memoize"><a href="#memoize" class="headerlink" title="memoize"></a>memoize</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">COPYconst memoize &#x3D; fn &#x3D;&gt; &#123;</span><br><span class="line">  const cache &#x3D; new Map();</span><br><span class="line">  const cached &#x3D; function(val) &#123;</span><br><span class="line">    return cache.has(val) ? cache.get(val) : cache.set(val, fn.call(this, val)) &amp;&amp; cache.get(val);</span><br><span class="line">  &#125;;</span><br><span class="line">  cached.cache &#x3D; cache;</span><br><span class="line">  return cached;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; See the &#96;anagrams&#96; snippet.</span><br><span class="line">const anagramsCached &#x3D; memoize(anagrams);</span><br><span class="line">anagramsCached(&#39;javascript&#39;); &#x2F;&#x2F; takes a long time</span><br><span class="line">anagramsCached(&#39;javascript&#39;); &#x2F;&#x2F; returns virtually instantly since it&#39;s now cached</span><br><span class="line">console.log(anagramsCached.cache); &#x2F;&#x2F; The cached anagrams map</span><br></pre></td></tr></table></figure>
+
+<p>作用：为给定的函数添加缓存功能。</p>
+<p>解析: 通过实例化一个新的<code>Map</code>对象来创建一个空的缓存。</p>
+<p>并对函数的调用进一步的封装，如果调用时，传入了一个之前已经传递过的参数，将从缓存中直接返回结果，执行时间为 O(1)；如果是首次传递，则需运行函数，将得到结果缓存，并返回。</p>
+<p>其实，我们还可以借助这个片段，看到一丝 JavaScript 语法的残缺。</p>
+<p>到目前为止，一个社区公认的私有属性语法都没有，TC39 一直提议用<code>#</code>号，并阐述了很多原因、声明。</p>
+<p>哎，说白了，就是 JavaScript 从一开始设计的失误，到现在已经无法挽回了。</p>
+<h4 id="throttle"><a href="#throttle" class="headerlink" title="throttle"></a>throttle</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">COPYconst throttle &#x3D; (fn, wait) &#x3D;&gt; &#123;</span><br><span class="line">  let inThrottle, lastFn, lastTime;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    const context &#x3D; this,</span><br><span class="line">      args &#x3D; arguments;</span><br><span class="line">    if (!inThrottle) &#123;</span><br><span class="line">      fn.apply(context, args);</span><br><span class="line">      lastTime &#x3D; Date.now();</span><br><span class="line">      inThrottle &#x3D; true;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      clearTimeout(lastFn);</span><br><span class="line">      lastFn &#x3D; setTimeout(function() &#123;</span><br><span class="line">        if (Date.now() - lastTime &gt;&#x3D; wait) &#123;</span><br><span class="line">          fn.apply(context, args);</span><br><span class="line">          lastTime &#x3D; Date.now();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, Math.max(wait - (Date.now() - lastTime), 0));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.addEventListener(</span><br><span class="line">  &#39;resize&#39;,</span><br><span class="line">  throttle(function(evt) &#123;</span><br><span class="line">    console.log(window.innerWidth);</span><br><span class="line">    console.log(window.innerHeight);</span><br><span class="line">  &#125;, 250)</span><br><span class="line">); &#x2F;&#x2F; Will log the window dimensions at most every 250ms</span><br></pre></td></tr></table></figure>
+
+<p>作用: 函数节流。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/5">什么是防抖和节流？有什么区别？如何实现？</a> 一文中关于防抖解释：</p>
+<blockquote>
+<p>高频事件触发，但在 n 秒内只会执行一次，所以节流会稀释函数的执行频率。</p>
+</blockquote>
+<p>同样，节流也是面试必考的点。</p>
+<p>解析：第一次执行时，立即执行给定函数，保存当前的时间，并设置标记变量。</p>
+<p>标记变量主要用于判断是否第一次调用，如果是第一次则立刻运行。</p>
+<p>反之不是第一次运行，过了等待的毫秒后才可继续运行。</p>
+<p>主要逻辑是每次运行前先清除上一个的定时器，然后计算出上一次运行的时间与给定的运行间隔所差的毫秒数，并利用其数据新建一个定时器运行。</p>
+<p>定时器里的函数除了调用给定函数，还会更新上一次运行的时间变量。</p>
+<p>节流的实现，网上的文章有很多版本，但多少都有点瑕疵。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2021/01/11/%E6%BC%AB%E8%B0%88%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+        漫谈编程语言 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Doe. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
